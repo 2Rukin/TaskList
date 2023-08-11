@@ -24,12 +24,17 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task create(Task task) {
+    public Task create(Task task, Long id) {
         return null;
     }
 
     @Override
     public void delete(Long id) {
 
+    }
+
+    @Override
+    public List<Task> getAllByUserId(Long id) {
+        return null;
     }
 }
