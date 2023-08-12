@@ -1,5 +1,6 @@
 package com.example.TaskList.config;
 
+import com.example.TaskList.web.Security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +21,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class ApplicationConfig {
+
+    private final JwtTokenProvider jwtTokenProvider;
 
     private final ApplicationContext applicationContext;
 

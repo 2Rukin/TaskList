@@ -10,3 +10,8 @@ spring:
       continue-on-error: false
       #data-locations: classpath:demo_data.sql
 
+security:
+  jwt:
+    secret: ZmRzYXNmNDM1MjM5OHl2YWRmZkZMRktLRkpLOTlkOGQ4OGQ=
+    access: 3600000
+    refresh: 2592000000
