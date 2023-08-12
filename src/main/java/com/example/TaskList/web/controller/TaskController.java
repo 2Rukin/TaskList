@@ -1,7 +1,9 @@
-package web.controller;
+package com.example.TaskList.web.controller;
 
 import com.example.TaskList.service.TaskService;
-import domain.task.Task;
+import com.example.TaskList.domain.task.Task;
+import com.example.TaskList.web.dto.mappers.TaskMapper;
+import com.example.TaskList.web.dto.validation.OnUpdate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,9 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import web.dto.mappers.TaskMapper;
-import web.dto.task.TaskDto;
-import web.dto.validation.OnUpdate;
+import com.example.TaskList.web.dto.task.TaskDto;
 
 @RestController
 @RequestMapping("/api/v1/tasks")

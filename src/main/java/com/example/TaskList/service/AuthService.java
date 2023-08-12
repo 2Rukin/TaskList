@@ -1,7 +1,7 @@
 package com.example.TaskList.service;
 
-import web.dto.auth.JwtRequest;
-import web.dto.auth.JwtResponse;
+import com.example.TaskList.web.dto.auth.JwtRequest;
+import com.example.TaskList.web.dto.auth.JwtResponse;
 
 public interface AuthService {
 

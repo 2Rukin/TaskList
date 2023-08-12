@@ -1,8 +1,8 @@
-package web.dto.mappers;
+package com.example.TaskList.web.dto.mappers;
 
-import domain.task.Task;
+import com.example.TaskList.domain.task.Task;
 import org.mapstruct.Mapper;
-import web.dto.task.TaskDto;
+import com.example.TaskList.web.dto.task.TaskDto;
 
 import java.util.List;
 

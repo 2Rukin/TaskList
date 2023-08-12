@@ -1,14 +1,13 @@
-package web.dto.task;
+package com.example.TaskList.web.dto.task;
 
+import com.example.TaskList.web.dto.validation.OnCreate;
+import com.example.TaskList.web.dto.validation.OnUpdate;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import domain.task.Status;
+import com.example.TaskList.domain.task.Status;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
-import web.dto.validation.OnCreate;
-import web.dto.validation.OnUpdate;
 
 import java.time.LocalDateTime;
 

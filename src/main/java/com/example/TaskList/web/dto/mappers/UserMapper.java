@@ -1,8 +1,8 @@
-package web.dto.mappers;
+package com.example.TaskList.web.dto.mappers;
 
-import domain.user.User;
+import com.example.TaskList.domain.user.User;
+import com.example.TaskList.web.dto.user.UserDto;
 import org.mapstruct.Mapper;
-import web.dto.user.UserDto;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {

@@ -1,4 +1,4 @@
-package domain.task;
+package com.example.TaskList.domain.task;
 
 import lombok.Data;
 

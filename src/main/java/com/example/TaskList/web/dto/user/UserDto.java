@@ -1,11 +1,11 @@
-package web.dto.user;
+package com.example.TaskList.web.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-import web.dto.validation.OnCreate;
-import web.dto.validation.OnUpdate;
+import com.example.TaskList.web.dto.validation.OnCreate;
+import com.example.TaskList.web.dto.validation.OnUpdate;
 
 @Data
 public class UserDto {

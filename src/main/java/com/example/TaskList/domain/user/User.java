@@ -1,6 +1,6 @@
-package domain.user;
+package com.example.TaskList.domain.user;
 
-import domain.task.Task;
+import com.example.TaskList.domain.task.Task;
 import lombok.Data;
 
 import java.util.List;

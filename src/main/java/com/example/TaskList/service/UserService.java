@@ -1,6 +1,6 @@
 package com.example.TaskList.service;
 
-import domain.user.User;
+import com.example.TaskList.domain.user.User;
 
 public interface UserService {
 

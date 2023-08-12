@@ -1,10 +1,15 @@
-package web.controller;
+package com.example.TaskList.web.controller;
 
 
 import com.example.TaskList.service.TaskService;
 import com.example.TaskList.service.UserService;
-import domain.task.Task;
-import domain.user.User;
+import com.example.TaskList.domain.task.Task;
+import com.example.TaskList.domain.user.User;
+import com.example.TaskList.web.dto.mappers.TaskMapper;
+import com.example.TaskList.web.dto.mappers.UserMapper;
+import com.example.TaskList.web.dto.user.UserDto;
+import com.example.TaskList.web.dto.validation.OnCreate;
+import com.example.TaskList.web.dto.validation.OnUpdate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,12 +20,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import web.dto.mappers.TaskMapper;
-import web.dto.mappers.UserMapper;
-import web.dto.task.TaskDto;
-import web.dto.user.UserDto;
-import web.dto.validation.OnCreate;
-import web.dto.validation.OnUpdate;
+import com.example.TaskList.web.dto.task.TaskDto;
 
 import java.util.List;
 

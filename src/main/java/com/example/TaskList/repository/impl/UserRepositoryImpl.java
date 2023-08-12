@@ -1,8 +1,8 @@
 package com.example.TaskList.repository.impl;
 
 import com.example.TaskList.repository.UserRepository;
-import domain.user.Role;
-import domain.user.User;
+import com.example.TaskList.domain.user.Role;
+import com.example.TaskList.domain.user.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

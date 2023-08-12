@@ -1,4 +1,4 @@
-package web.dto.auth;
+package com.example.TaskList.web.dto.auth;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package com.example.TaskList.service.impl;
 
 import com.example.TaskList.service.TaskService;
-import domain.task.Task;
+import com.example.TaskList.domain.task.Task;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
