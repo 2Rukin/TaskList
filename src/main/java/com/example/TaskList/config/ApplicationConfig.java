@@ -1,5 +1,6 @@
 package com.example.TaskList.config;
 
+import com.example.TaskList.web.Security.JwtTokenFilter;
 import com.example.TaskList.web.Security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
