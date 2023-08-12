@@ -1,4 +1,4 @@
-package com.example.TaskList.web.dto.mappers;
+package com.example.TaskList.web.mappers;
 
 import com.example.TaskList.domain.user.User;
 import com.example.TaskList.web.dto.user.UserDto;

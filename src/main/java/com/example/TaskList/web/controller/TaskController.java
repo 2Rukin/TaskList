@@ -2,7 +2,7 @@ package com.example.TaskList.web.controller;
 
 import com.example.TaskList.service.TaskService;
 import com.example.TaskList.domain.task.Task;
-import com.example.TaskList.web.dto.mappers.TaskMapper;
+import com.example.TaskList.web.mappers.TaskMapper;
 import com.example.TaskList.web.dto.validation.OnUpdate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
