@@ -1,4 +1,4 @@
-package com.example.TaskList.repository.impl;
+package com.example.TaskList.repository.mappers;
 
 import com.example.TaskList.domain.task.Status;
 import com.example.TaskList.domain.task.Task;

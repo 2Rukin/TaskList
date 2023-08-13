@@ -4,10 +4,10 @@ import com.example.TaskList.config.DataSourceConfig;
 import com.example.TaskList.domain.exeption.ResourceMappingExeption;
 import com.example.TaskList.repository.TaskRepository;
 import com.example.TaskList.domain.task.Task;
+import com.example.TaskList.repository.mappers.TaskRowMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
 import java.sql.*;
 import java.util.List;
 import java.util.Optional;
