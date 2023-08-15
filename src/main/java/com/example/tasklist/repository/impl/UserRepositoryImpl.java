@@ -30,10 +30,10 @@ public class UserRepositoryImpl implements UserRepository {
                    t.description as task_description,
                    t.expiration_date as task_expiration_date,
                    t.status as task_status
-            FROM tasklist.users u
-            LEFT JOIN tasklist.users_roles ur on u.id = ur.user_id
-            LEFT JOIN tasklist.users_tasks ut on u.id = ut.user_id
-            LEFT JOIN tasklist.tasks t on ut.task_id = t.id
+            FROM users u
+            LEFT JOIN users_roles ur on u.id = ur.user_id
+            LEFT JOIN users_tasks ut on u.id = ut.user_id
+            LEFT JOIN tasks t on ut.task_id = t.id
             WHERE u.id = ?""";
 
     private final String FIND_BY_USERNAME = """
@@ -47,35 +47,35 @@ public class UserRepositoryImpl implements UserRepository {
                    t.description as task_description,
                    t.expiration_date as task_expiration_date,
                    t.status as task_status
-            FROM tasklist.users u
-            LEFT JOIN tasklist.users_roles ur on u.id = ur.user_id
-            LEFT JOIN tasklist.users_tasks ut on u.id = ut.user_id
-            LEFT JOIN tasklist.tasks t on ut.task_id = t.id
+            FROM users u
+            LEFT JOIN users_roles ur on u.id = ur.user_id
+            LEFT JOIN users_tasks ut on u.id = ut.user_id
+            LEFT JOIN tasks t on ut.task_id = t.id
             WHERE u.username = ?""";
 
     private final String UPDATE = """
-            UPDATE tasklist.users
+            UPDATE users
             SET name = ?,
                 username = ?,
                 password = ?
             WHERE id = ?""";
 
     private final String CREATE = """
-            INSERT INTO tasklist.users(name, username, password)
+            INSERT INTO users(name, username, password)
             VALUES (?, ?, ?)""";
 
     private final String INSERT_USER_ROLE = """
-            INSERT INTO tasklist.users_roles (user_id, role)
+            INSERT INTO users_roles (user_id, role)
             VALUES (?, ?)""";
 
     private final String DELETE = """
-            DELETE FROM tasklist.users
+            DELETE FROM users
             WHERE id = ?""";
 
     private final String IS_TASK_OWNER = """
             SELECT EXISTS(
                 SELECT 1
-                FROM tasklist.users_tasks
+                FROM users_tasks
                 WHERE user_id = ? AND task_id = ?
             )""";
 

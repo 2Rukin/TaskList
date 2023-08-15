@@ -25,7 +25,7 @@ public class TaskRepositoryImpl implements TaskRepository {
                    t.description as task_description,
                    t.expiration_date as task_expiration_date,
                    t.status as task_status
-            FROM tasklist.tasks t
+            FROM tasks t
             WHERE id = ?;
                            """;
 
@@ -35,17 +35,17 @@ public class TaskRepositoryImpl implements TaskRepository {
                    t.description     as task_description,
                    t.expiration_date as task_expiration_date,
                    t.status          as task_status
-            FROM tasklist.tasks t
-                     JOIN tasklist.users_tasks ut on t.id = ut.task_id
+            FROM tasks t
+                     JOIN users_tasks ut on t.id = ut.task_id
             WHERE ut.user_id = ?;
                         """;
     private final String ASSIGN = """
-            INSERT INTO tasklist.users_tasks (task_id, user_id)
+            INSERT INTO users_tasks (task_id, user_id)
             VALUES (?, ?)
             """;
 
     private final String UPDATE = """
-            UPDATE tasklist.tasks
+            UPDATE tasks
             SET title = ?,
                 description = ?,
                 expiration_date = ?,
@@ -54,12 +54,12 @@ public class TaskRepositoryImpl implements TaskRepository {
             """;
 
     private final String CREATE = """
-            INSERT INTO tasklist.tasks (title, description, expiration_date, status)
+            INSERT INTO tasks (title, description, expiration_date, status)
             VALUES (?, ?, ?, ?)
             """;
 
     private final String DELETE = """
-            DELETE FROM tasklist.tasks
+            DELETE FROM tasks
             WHERE id = ?
             """;
 
