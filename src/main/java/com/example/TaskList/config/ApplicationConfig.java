@@ -23,7 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor(onConstructor = @__(@Lazy))
 @EnableWebSecurity
 public class ApplicationConfig {
-
+//
     private final JwtTokenProvider jwtTokenProvider;
 
     private final ApplicationContext applicationContext;
