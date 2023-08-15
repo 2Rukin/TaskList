@@ -4,6 +4,7 @@ import com.example.tasklist.service.TaskService;
 import com.example.tasklist.domain.task.Task;
 import com.example.tasklist.web.mappers.TaskMapper;
 import com.example.tasklist.web.dto.validation.OnUpdate;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +20,7 @@ import com.example.tasklist.web.dto.task.TaskDto;
 @RequestMapping("/api/v1/tasks")
 @RequiredArgsConstructor
 @Validated
+@Tag(name = "Task Controller", description = " Task API")
 public class TaskController {
 
     private final TaskService taskService;

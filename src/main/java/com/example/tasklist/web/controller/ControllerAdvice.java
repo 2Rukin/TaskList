@@ -6,6 +6,8 @@ import com.example.tasklist.domain.exeption.ResourceNotFoundExeption;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -83,6 +85,18 @@ public class ControllerAdvice {
         return new ExceptionBody(e.getMessage());
 
     }
+    @ExceptionHandler(BadCredentialsException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ExceptionBody handleBadCredentialsException(Exception e) {
 
+        return new ExceptionBody(e.getMessage());
 
+    }
+    @ExceptionHandler(AuthenticationException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ExceptionBody handleAuthenticationException(Exception e) {
+
+        return new ExceptionBody(e.getMessage());
+
+    }
 }

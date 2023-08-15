@@ -10,6 +10,7 @@ import com.example.tasklist.web.mappers.UserMapper;
 import com.example.tasklist.web.dto.user.UserDto;
 import com.example.tasklist.web.dto.validation.OnCreate;
 import com.example.tasklist.web.dto.validation.OnUpdate;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +29,8 @@ import java.util.List;
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 @Validated
+@Tag(name = "UserController", description = " User API")
+
 public class UserController {
 
     private final UserService userService;

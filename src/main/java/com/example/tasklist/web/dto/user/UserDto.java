@@ -1,6 +1,7 @@
 package com.example.tasklist.web.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -8,8 +9,10 @@ import com.example.tasklist.web.dto.validation.OnCreate;
 import com.example.tasklist.web.dto.validation.OnUpdate;
 
 @Data
+@Schema(description = "User Dto")
 public class UserDto {
 
+    @Schema(description = "User id", example = "1")
     @NotNull(message = "Id must be not null.", groups = OnUpdate.class)
     private Long id;
 
