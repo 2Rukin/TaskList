@@ -1,5 +1,12 @@
-FROM openjdk:17-jdk-slim
-COPY target/TaskList-0.0.1-SNAPSHOT.jar application.jar
+FROM maven:3-openjdk-17
+
+WORKDIR /app
+COPY src src
+
+RUN mvn package
+
+COPY target/tasklist-0.0.1-SNAPSHOT.jar app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "application.jar"]
+ENTRYPOINT ["java", "-jar","app.jar"]
 
