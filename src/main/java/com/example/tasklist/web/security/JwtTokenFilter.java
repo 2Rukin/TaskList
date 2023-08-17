@@ -1,4 +1,4 @@
-package com.example.tasklist.web.Security;
+package com.example.tasklist.web.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

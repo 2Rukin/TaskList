@@ -1,4 +1,4 @@
-package com.example.tasklist.web.Security;
+package com.example.tasklist.web.security;
 
 import com.example.tasklist.domain.user.User;
 import com.example.tasklist.service.UserService;

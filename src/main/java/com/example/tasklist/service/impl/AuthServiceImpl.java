@@ -3,7 +3,7 @@ package com.example.tasklist.service.impl;
 import com.example.tasklist.domain.user.User;
 import com.example.tasklist.service.AuthService;
 import com.example.tasklist.service.UserService;
-import com.example.tasklist.web.Security.JwtTokenProvider;
+import com.example.tasklist.web.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

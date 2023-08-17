@@ -1,7 +1,7 @@
 package com.example.tasklist.config;
 
-import com.example.tasklist.web.Security.JwtTokenFilter;
-import com.example.tasklist.web.Security.JwtTokenProvider;
+import com.example.tasklist.web.security.JwtTokenFilter;
+import com.example.tasklist.web.security.JwtTokenProvider;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -26,6 +27,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @RequiredArgsConstructor(onConstructor = @__(@Lazy))
 @EnableWebSecurity
+@EnableMethodSecurity
 public class ApplicationConfig {
 //
     private final JwtTokenProvider jwtTokenProvider;

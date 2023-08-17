@@ -1,4 +1,4 @@
-package com.example.tasklist.web.Security;
+package com.example.tasklist.web.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
