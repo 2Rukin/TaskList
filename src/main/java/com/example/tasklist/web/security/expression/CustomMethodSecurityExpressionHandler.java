@@ -1,6 +1,7 @@
 package com.example.tasklist.web.security.expression;
 
 import com.example.tasklist.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -31,6 +32,7 @@ public class CustomMethodSecurityExpressionHandler extends DefaultMethodSecurity
 
     @Autowired
     public void setApplicationContext(ApplicationContext applicationContext) {
+        super.setApplicationContext(applicationContext);
         this.applicationContext = applicationContext;
     }
 }

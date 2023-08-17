@@ -18,13 +18,12 @@ public class CustomMethodSecurityExpressionRoot extends SecurityExpressionRoot i
     private Object filterObject;
     private Object returnObject;
     private Object target;
-    private final HttpServletRequest request;
-    private final UserService userService;
+    private HttpServletRequest request;
+    private UserService userService;
 
-    public CustomMethodSecurityExpressionRoot(Authentication authentication, HttpServletRequest request, UserService userService) {
+    public CustomMethodSecurityExpressionRoot(Authentication authentication) {
         super(authentication);
-        this.request = request;
-        this.userService = userService;
+
     }
 
     public boolean canAccessUser(Long id) {
