@@ -1,8 +1,9 @@
-version: '3'
+version: '3.1'
 services:
   app:
     build:
       context: .
+      dockerfile: dockerfile
     container_name: tasklist
     depends_on:
       - db
@@ -11,7 +12,8 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=qwerty1!
     ports:
-      - '8080:8080'
+      - '8081:8080'
+
 
   db:
     image: postgres:15.1-alpine
