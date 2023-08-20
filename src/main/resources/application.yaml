@@ -6,14 +6,14 @@ spring:
     cache-names: redis-cache
     data:
       redis:
-        host: ${REDIS_HOST}
-        port: ${REDIS_PORT}
-        password: ${REDIS_PASSWORD}
+        host: localhost
+        port: 6379
+        password: qwerty1!
   datasource:
-    url: ${POSTGRES_URL}
-    username: ${POSTGRES_USERNAME}
-    password: ${POSTGRES_PASSWORD}
-    driver-class-name: ${POSTGRES_DRIVER}
+    url: jdbc:postgresql://localhost:5432/tasklist?currentSchema=tasklist
+    username: postgres
+    password: qwerty1!
+    driver-class-name: org.postgresql.Driver
   sql:
     init:
       mode: never
@@ -29,7 +29,7 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
 security:
   jwt:
-    secret: ${JWT_SECRET}
+    secret: ZmRzYXNmNDM1MjM5OHl2YWRmZkZMRktLRkpLOTlkOGQ4OGQ=
     access: 1
     refresh: 30
 springdoc:
