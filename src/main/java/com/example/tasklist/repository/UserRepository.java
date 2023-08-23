@@ -4,31 +4,36 @@ import com.example.tasklist.domain.user.Role;
 import com.example.tasklist.domain.user.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
-@Mapper
-public interface UserRepository {
 
 
-    Optional<User> findById(Long id);
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    //дл проверки во время реги и чтобы секьюрити мог авторизовать
+
     Optional<User> findByUsername(String username);
 
-    //будет сохранять  в базу если пользователь уже есть ,
-    void update(User user);
+    @Query(value = """
+            SELECT u.id as id,
+            u.name as name,
+            u.username as username,
+            u.password as password
+            FROM users_tasks ut
+            JOIN users u ON ut.user_id = u.id
+            WHERE ut.task_id = :taskId
+            """, nativeQuery = true)
+    Optional<User> findTaskAuthor(@Param("taskId") Long taskId);
 
-    // будет принимать юзера , база будет сетать ид и это ид уже будет засетано в юзер , нет необходимости возвразать какойто обххект
-    // а он уже сразу засетается
-    void create(User user);
-
-    // т.е. при реги пользователь получает роль и она должна сохраниться
-    void insertUserRole(@Param("userID")Long userId, @Param("role")Role role);
-
-    //Task owner то есть этот метод будет проверять является ли пользователь с ID
-
-    boolean isTaskOwner(@Param("userID")Long userId, @Param("taskId")Long taskId);
-
-    void delete(Long id);
-
+    @Query(value = """
+             SELECT exists(
+                           SELECT 1
+                           FROM users_tasks
+                           WHERE user_id = :userId
+                             AND task_id = :taskId)
+            """, nativeQuery = true)
+    boolean isTaskOwner(@Param("userId") Long userId,
+                        @Param("taskId") Long taskId);
 }

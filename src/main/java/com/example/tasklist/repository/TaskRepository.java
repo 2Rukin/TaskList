@@ -1,8 +1,8 @@
 package com.example.tasklist.repository;
 
 import com.example.tasklist.domain.task.Task;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -11,11 +11,34 @@ import java.util.Optional;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
     @Query(value = """
-            select * from tasks t
-            join users_tasks ut ON  ut.task_id = t.id
-            where ut.user_id = :userId
-            """,nativeQuery = true)
+            SELECT * FROM tasks t
+            JOIN users_tasks ut ON ut.task_id = t.id
+            WHERE ut.user_id = :userId
+            """, nativeQuery = true)
     List<Task> findAllByUserId(@Param("userId") Long userId);
+
+    @Query(value = """
+            SELECT * FROM tasks t
+            WHERE t.expiration_date is not null
+            AND t.expiration_date between :start and :end
+            """, nativeQuery = true)
+    List<Task> findAllSoonTasks(@Param("start") Timestamp start,
+                                @Param("end") Timestamp end);
+
+    @Modifying
+    @Query(value = """
+            INSERT INTO users_tasks (user_id, task_id)
+            VALUES (:userId, :taskId)
+            """, nativeQuery = true)
+    void assignTask(@Param("userId") Long userId, @Param("taskId") Long taskId);
+
+    @Modifying
+    @Query(value = """
+            INSERT INTO tasks_images (task_id, image)
+            VALUES (:id, :fileName)
+            """, nativeQuery = true)
+    void addImage(@Param("id") Long id, @Param("fileName") String fileName);
+
 
 
 }
