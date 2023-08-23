@@ -1,10 +1,7 @@
 package com.example.tasklist.domain.user;
 
 import com.example.tasklist.domain.task.Task;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -18,15 +15,26 @@ import java.util.Set;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class User implements Serializable {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String username;
     private String password;
-    private String passwordConfirmation;
-    private Set<Role> roles;
-    private List<Task> tasks;
 
+    @Transient
+    private String passwordConfirmation;
+
+    @Column(name = "role")
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "users_roles")
+    @Enumerated(value = EnumType.STRING)
+    private Set<Role> roles;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(inverseJoinColumns = @JoinColumn(name = "task_id"))
+    private List<Task> tasks;
 
 }
