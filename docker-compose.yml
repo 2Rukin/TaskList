@@ -30,7 +30,7 @@ services:
       - POSTGRES_PASSWORD=qwerty1!
       - POSTGRES_DB=tasklist
     volumes:
-      - ./src/main/resources/db-init:/docker-entrypoint-initdb.d
+      - ./src/main/resources/preliquibase:/docker-entrypoint-initdb.d
       - db-data:/var/lib/postgresql/data
 
   redis:
